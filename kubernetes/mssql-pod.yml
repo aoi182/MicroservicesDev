@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mssql-pod
+  labels:
+    name: mssql-pod
+    type: database
+spec:
+  containers:
+  - name: mssql
+    image: mcr.microsoft.com/mssql/server:latest
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 1433
+    env:
+      - name: "ACCEPT_EULA"
+        value: "Y"
+      - name: SA_PASSWORD
+        value: "Admin123."

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservice-seguridad-deploy
+spec:
+  selector:
+    matchLabels:
+      name: microservice-seguridad-pod
+      type: microservice
+  template:
+    metadata:
+      name: microservice-seguridad-pod
+      labels:
+        name: microservice-seguridad-pod
+        type: microservice
+    spec:
+      containers:
+      - name: microservice-seguridad
+        image: adoniscruzglobant/serviciosapiseguridad:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 80
+        env:
+        - name: ConnectionStrings__ConexionDB
+          value: Server=mssql-service;user=sa;password=Admin123.

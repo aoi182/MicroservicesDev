@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservice-libreria-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: microservice-libreria-deploy
+  template:
+    metadata:
+      name: microservice-libreria-pod
+      labels:
+        name: microservice-libreria-pod
+        type: microservice
+    spec:
+      containers:
+      - name: microservice-libreria
+        image: adoniscruzglobant/serviciosapilibreria:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 80
+        env:
+          - name: MongoDb__ConnectionString
+            value: mongodb://admin:Admin123.@mongo-service:27017

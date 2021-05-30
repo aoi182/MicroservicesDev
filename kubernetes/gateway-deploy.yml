@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: microservice-gateway-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: microservice-gateway-pod
+      type: microservice
+  template:
+    metadata:
+      name: microservice-gateway-pod
+      labels:
+        name: microservice-gateway-pod
+    spec:
+      containers:
+      - name: microservice-gateway
+        image: adoniscruzglobant/serviciosapigateway:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 80
