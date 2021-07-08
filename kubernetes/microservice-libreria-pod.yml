@@ -7,14 +7,14 @@ metadata:
     type: microservice
 spec:
   containers:
-  - name: microservice-libreria
-    image: adoniscruzglobant/serviciosapilibreria:latest
-    resources:
-      limits:
-        memory: "128Mi"
-        cpu: "500m"
-    ports:
-      - containerPort: 80
-    env:
-      - name: MongoDb__ConnectionString
-        value: mongodb://admin:Admin123.@mongo-service:27017
+    - name: microservice-libreria
+      image: aoi182/serviciosapilibreria:latest
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+      ports:
+        - containerPort: 80
+      env:
+        - name: MongoDb__ConnectionString
+          value: mongodb://admin:Admin123.@mongo-service:27017

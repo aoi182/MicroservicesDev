@@ -8,5 +8,5 @@ spec:
     name: mssql-pod
     type: database
   ports:
-  - port: 1433
-    targetPort: 1433
+    - port: 1433
+      targetPort: 1433

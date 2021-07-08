@@ -8,5 +8,5 @@ spec:
     name: mongo-pod
     type: database
   ports:
-  - port: 27017
-    targetPort: 27017
+    - port: 27017
+      targetPort: 27017

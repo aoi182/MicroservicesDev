@@ -13,13 +13,14 @@ spec:
       name: microservice-gateway-pod
       labels:
         name: microservice-gateway-pod
+        type: microservice
     spec:
       containers:
-      - name: microservice-gateway
-        image: adoniscruzglobant/serviciosapigateway:latest
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-          - containerPort: 80
+        - name: microservice-gateway
+          image: aoi182/serviciosapigateway:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80

@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   name: microservice-seguridad-deploy
 spec:
+  replicas: 1
   selector:
     matchLabels:
       name: microservice-seguridad-pod
@@ -15,14 +16,14 @@ spec:
         type: microservice
     spec:
       containers:
-      - name: microservice-seguridad
-        image: adoniscruzglobant/serviciosapiseguridad:latest
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
-        ports:
-          - containerPort: 80
-        env:
-        - name: ConnectionStrings__ConexionDB
-          value: Server=mssql-service;user=sa;password=Admin123.
+        - name: microservice-seguridad
+          image: aoi182/serviciosapiseguridad:latest
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 80
+          env:
+            - name: ConnectionStrings__ConexionDB
+              value: Server=mssql-service;user=sa;password=Admin123.
