@@ -3,11 +3,11 @@ kind: Pod
 metadata:
   name: microservice-seguridad-pod
   labels:
-    name: microservice-seguridad-pod
+    app: microservice-seguridad
     type: microservice
 spec:
   containers:
-    - name: microservice-seguridad
+    - name: microservice-seguridad-app
       image: aoi182/serviciosapiseguridad:latest
       resources:
         limits:

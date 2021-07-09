@@ -1,22 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: microservice-gateway-deploy
+  name: gateway-deploy
+  labels:
+    name: gateway-deploy
+    app: microservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: microservice-gateway-pod
+      app: gateway
       type: microservice
   template:
     metadata:
-      name: microservice-gateway-pod
+      name: gateway-pod
       labels:
-        name: microservice-gateway-pod
+        app: gateway
         type: microservice
     spec:
       containers:
-        - name: microservice-gateway
+        - name: gateway-app
           image: aoi182/serviciosapigateway:latest
           resources:
             limits:

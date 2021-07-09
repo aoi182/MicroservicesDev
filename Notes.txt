@@ -1,1 +1,7 @@
 DevOps y Docker Kubernetes Microservice y Azure - NET Core 5
+
+---------------------------------------------------------------------------------------------------
+kubectl create -f microservice-libreria-deploy.yml
+error: error validating "microservice-libreria-deploy.yml": error validating data: ValidationError(Deployment.metadata): unknown field "app" in io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta; if you choose to ignore these errors, turn validation off with --validate=false
+---------------------------------------------------------------------------------------------------
+

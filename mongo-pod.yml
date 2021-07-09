@@ -3,15 +3,12 @@ kind: Pod
 metadata:
   name: mongo-pod
   labels:
+    app: microservice-libreria
     name: mongo-pod
-    type: database
 spec:
   containers:
-    - name: mongo-pod
-      image: mongo:latest
-      command:
-        - /bin/bash
-        - -c
+    - name: mongo
+      image: mongo:4.2.12
       env:
         - name: MONGO_INITDB_ROOT_USERNAME
           value: "admin"

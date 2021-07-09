@@ -2,21 +2,24 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: microservice-seguridad-deploy
+  labels:
+    name: microservice-seguridad-deploy
+    app: microservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: microservice-seguridad-pod
+      app: microservice-seguridad
       type: microservice
   template:
     metadata:
       name: microservice-seguridad-pod
       labels:
-        name: microservice-seguridad-pod
+        app: microservice-seguridad
         type: microservice
     spec:
       containers:
-        - name: microservice-seguridad
+        - name: microservice-seguridad-app
           image: aoi182/serviciosapiseguridad:latest
           resources:
             limits:

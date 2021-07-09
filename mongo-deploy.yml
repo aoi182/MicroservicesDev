@@ -2,34 +2,33 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongo-deploy
-  type: database
+  labels:
+    name: mongo-deploy
+    app: microservice
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: microservice-libreria
       name: mongo-pod
-      type: database
   template:
     metadata:
       name: mongo-pod
       labels:
+        app: microservice-libreria
         name: mongo-pod
-        type: database
     spec:
       containers:
-        - name: mongo-pod
-          image: mongo:latest
-          command:
-            - /bin/bash
-            - -c
+        - name: mongo
+          image: mongo:4.2.12
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           env:
             - name: MONGO_INITDB_ROOT_USERNAME
               value: "admin"
             - name: MONGO_INITDB_ROOT_PASSWORD
               value: "Admin123."
-          resources:
-            limits:
-              memory: "128Mi"
-              cpu: "500m"
           ports:
             - containerPort: 27017

@@ -3,11 +3,11 @@ kind: Pod
 metadata:
   name: microservice-libreria-pod
   labels:
-    name: microservice-libreria-pod
+    app: microservice-libreria
     type: microservice
 spec:
   containers:
-    - name: microservice-libreria
+    - name: microservice-libreria-app
       image: aoi182/serviciosapilibreria:latest
       resources:
         limits:

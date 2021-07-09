@@ -2,22 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: microservice-libreria-deploy
-  app: microservice
+  labels:
+    name: microservice-libreria-deploy
+    app: microservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: microservice-libreria-deploy
+      app: microservice-libreria
+      type: microservice
   template:
     metadata:
       name: microservice-libreria-pod
       labels:
-        name: microservice-libreria-pod
+        app: microservice-libreria
         type: microservice
     spec:
       containers:
-        - name: microservice-libreria
-          image: aoi/serviciosapilibreria:latest
+        - name: microservice-libreria-app
+          image: aoi182/serviciosapilibreria:latest
           resources:
             limits:
               memory: "128Mi"
