@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Servicios.api.Seguridad", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Servicios.api.Gateway", "Servicios.api.Gateway\Servicios.api.Gateway.csproj", "{0414778E-A839-49A4-A79C-E31E23575019}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "kubernetes", "kubernetes", "{86438E9C-A694-4117-B76B-A459594E0580}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Kubernetes", "Kubernetes", "{3B56FF92-8C2F-4769-9697-C2705F038404}"
 	ProjectSection(SolutionItems) = preProject
 		gateway-deploy.yml = gateway-deploy.yml
 		gateway-pod.yml = gateway-pod.yml
