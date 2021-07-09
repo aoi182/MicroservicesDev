@@ -3,12 +3,12 @@ kind: Pod
 metadata:
   name: mssql-pod
   labels:
+    app: microservice-seguridad
     name: mssql-pod
-    type: database
 spec:
   containers:
     - name: mssql
-      image: mcr.microsoft.com/mssql/server:latest
+      image: mcr.microsoft.com/mssql/server
       resources:
         limits:
           memory: "128Mi"
@@ -16,7 +16,7 @@ spec:
       ports:
         - containerPort: 1433
       env:
-        - name: "ACCEPT_EULA"
+        - name: ACCEPT_EULA
           value: "Y"
         - name: SA_PASSWORD
           value: "Admin123."

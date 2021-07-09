@@ -2,18 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mssql-deploy
+  labels:
+    name: mssql-deploy
+    app: microservice-seguridad
 spec:
   replicas: 1
   selector:
     matchLabels:
+      app: microservice-seguridad
       name: mssql-pod
-      type: database
   template:
     metadata:
       name: mssql-pod
       labels:
+        app: microservice-seguridad
         name: mssql-pod
-        type: database
     spec:
       containers:
         - name: mssql
@@ -25,7 +28,7 @@ spec:
           ports:
             - containerPort: 1433
           env:
-            - name: "ACCEPT_EULA"
+            - name: ACCEPT_EULA
               value: "Y"
             - name: SA_PASSWORD
               value: "Admin123."

@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: microservice-gateway-pod
+  name: gateway-pod
   labels:
-    name: microservice-gateway-pod
+    app: gateway
     type: microservice
 spec:
   containers:
-    - name: microservice-gateway
+    - name: gateway-app
       image: aoi182/serviciosapigateway:latest
       resources:
         limits:

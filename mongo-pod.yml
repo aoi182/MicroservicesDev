@@ -3,11 +3,11 @@ kind: Pod
 metadata:
   name: mongo-pod
   labels:
+    app: microservice-libreria
     name: mongo-pod
-    type: database
 spec:
   containers:
-    - name: mongo-pod
+    - name: mongo
       image: mongo:latest
       command:
         - /bin/bash
