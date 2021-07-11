@@ -9,14 +9,14 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: microservice-seguridad
       name: mssql-pod
+      app: microservice-seguridad
   template:
     metadata:
       name: mssql-pod
       labels:
-        app: microservice-seguridad
         name: mssql-pod
+        app: microservice-seguridad
     spec:
       containers:
         - name: mssql
