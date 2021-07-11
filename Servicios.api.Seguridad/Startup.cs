@@ -46,7 +46,16 @@ namespace Servicios.api.Seguridad
 
             services.AddDbContext<SeguridadContexto>(opt =>
             {
-                opt.UseSqlServer(Configuration.GetConnectionString("ConexionDB"));
+                string server = Configuration["ServerName"];
+                string port = Configuration["ServerPort"];
+                string database = Configuration["Database"];
+                string user = Configuration["User"];
+                string password = Configuration["Password"];
+
+                string connectionString = $"Server={server},{port};Initial Catalog={database};User Id={user};Password={password};";
+
+                //opt.UseSqlServer(Configuration.GetConnectionString("ConexionDB"));
+                opt.UseSqlServer(connectionString);
             });
 
             var builder = services.AddIdentityCore<Usuario>();
